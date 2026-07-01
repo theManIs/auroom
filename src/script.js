@@ -93,7 +93,7 @@ const loadingManager = new THREE.LoadingManager(
 );
 
 const dracoLoader = new DRACOLoader(loadingManager);
-dracoLoader.setDecoderPath("/draco/");
+dracoLoader.setDecoderPath("draco/");
 
 const gltfLoader = new GLTFLoader(loadingManager);
 gltfLoader.setDRACOLoader(dracoLoader);
@@ -110,7 +110,7 @@ if (sceneStatus.video == true) {
     video.autoplay = true;
     video.muted = true;
     video.playsInline = true;
-    video.src = "/video/dubai.mp4";
+    video.src = "video/dubai.mp4";
     document.body.appendChild(video);
 }
 
@@ -206,7 +206,7 @@ const scene = new THREE.Scene();
  */
 
 const bakedWallsTexture = textureLoader.load(
-    "/textures/walls_in_hidemode.jpg",
+    "textures/walls_in_hidemode.jpg",
     (texture) => {
         texture.flipY = false;
     }
@@ -218,7 +218,7 @@ const bakedWallsMaterial = new THREE.MeshBasicMaterial({
 });
 
 const bakedFloorTexture = textureLoader.load(
-    "/textures/floor_in_hidemode.jpg",
+    "textures/floor_in_hidemode.jpg",
     (texture) => {
         texture.flipY = false;
     }
@@ -230,7 +230,7 @@ const bakedFloorMaterial = new THREE.MeshBasicMaterial({
 });
 
 const bakedCeilingTexture = textureLoader.load(
-    "/textures/ceiling.jpg",
+    "textures/ceiling.jpg",
     (texture) => {
         texture.flipY = false;
     }
@@ -403,12 +403,12 @@ const updateAllMaterials = (group) => {
 // ])
 
 const environmentMap = cubeTextureLoader.load([
-    "/textures/environmentMaps/4/px.png",
-    "/textures/environmentMaps/4/nx.png",
-    "/textures/environmentMaps/4/py.png",
-    "/textures/environmentMaps/4/ny.png",
-    "/textures/environmentMaps/4/pz.png",
-    "/textures/environmentMaps/4/nz.png",
+    "textures/environmentMaps/4/px.png",
+    "textures/environmentMaps/4/nx.png",
+    "textures/environmentMaps/4/py.png",
+    "textures/environmentMaps/4/ny.png",
+    "textures/environmentMaps/4/pz.png",
+    "textures/environmentMaps/4/nz.png",
 ]);
 
 environmentMap.encoding = THREE.sRGBEncoding;
@@ -427,7 +427,7 @@ debugObject.envMapIntensity = 2;
  */
 // console.log("loading model");
 // console.takeHeapSnapshot("loading model");
-gltfLoader.load("/models/v8-draco/apartment.gltf", (gltf) => {
+gltfLoader.load("models/v8-draco/apartment.gltf", (gltf) => {
     // console.log("model loaded");
     // console.takeHeapSnapshot("model loaded");
     gltf.scene.position.set(0, 0, 0);
@@ -479,7 +479,7 @@ gltfLoader.load("/models/v8-draco/apartment.gltf", (gltf) => {
  * Sprites
  */
 const mapLivingRoom = new THREE.TextureLoader().load(
-    "/textures/livingroom.svg"
+    "textures/livingroom.svg"
 );
 const spriteMaterialLivingRoom = new THREE.SpriteMaterial({
     map: mapLivingRoom,
@@ -490,7 +490,7 @@ const spriteLivingRoom = new THREE.Sprite(spriteMaterialLivingRoom);
 spriteLivingRoom.position.set(1.5, 2.5, -2.5);
 spriteLivingRoom.scale.set(0.05, 0.05, 0.05);
 
-const mapKitchen = new THREE.TextureLoader().load("/textures/kitchen.svg");
+const mapKitchen = new THREE.TextureLoader().load("textures/kitchen.svg");
 const spriteMaterialKitchen = new THREE.SpriteMaterial({ map: mapKitchen });
 spriteMaterialKitchen.sizeAttenuation = false;
 
@@ -498,7 +498,7 @@ const spriteKitchen = new THREE.Sprite(spriteMaterialKitchen);
 spriteKitchen.position.set(1.5, 2.5, 1);
 spriteKitchen.scale.set(0.05, 0.05, 0.05);
 
-const mapBathroom = new THREE.TextureLoader().load("/textures/bathroom.svg");
+const mapBathroom = new THREE.TextureLoader().load("textures/bathroom.svg");
 const spriteMaterialBathroom = new THREE.SpriteMaterial({ map: mapBathroom });
 spriteMaterialBathroom.sizeAttenuation = false;
 
@@ -506,7 +506,7 @@ const spriteBathroom = new THREE.Sprite(spriteMaterialBathroom);
 spriteBathroom.position.set(-2.1, 2.5, 0.5);
 spriteBathroom.scale.set(0.05, 0.05, 0.05);
 
-const mapBedroom = new THREE.TextureLoader().load("/textures/bedroom.svg");
+const mapBedroom = new THREE.TextureLoader().load("textures/bedroom.svg");
 const spriteMaterialBedroom = new THREE.SpriteMaterial({ map: mapBedroom });
 spriteMaterialBedroom.sizeAttenuation = false;
 const spriteBedroom = new THREE.Sprite(spriteMaterialBedroom);
@@ -853,7 +853,7 @@ const nz = new THREE.Vector3(0, 0, -1);
 //Plane036
 
 const planeGeometry = new THREE.PlaneGeometry(0.3, 0.3);
-const planeTexture = textureLoader.load("/move_pointer.png");
+const planeTexture = textureLoader.load("move_pointer.png");
 const planeMaterial = new THREE.MeshBasicMaterial({ map: planeTexture });
 planeMaterial.transparent = true;
 const planePointer = new THREE.Mesh(planeGeometry, planeMaterial);
